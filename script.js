@@ -2,6 +2,8 @@ document.addEventListener('scroll', () => {
     const header = document.getElementById('header-main')
     const headerLinksDiv = document.getElementById('navbarNav')
     const nav = document.getElementById('nav')
+    const pageTitle = document.getElementById('page2-title')
+    const mainText = document.getElementById('page2-main-text')
     console.log(scrollY)
     if(scrollY < 100){
         headerLinksDiv.innerHTML = ''
@@ -23,7 +25,6 @@ document.addEventListener('scroll', () => {
                 </ul>`
             }
         }, 1200)
-
     }
     if (scrollY >= 800){
         header.classList.add('nav-anim2')
@@ -33,7 +34,15 @@ document.addEventListener('scroll', () => {
         header.classList.remove('nav-anim2')
         header.classList.remove('col-12')
     }
+    if (scrollY > 250){
+        pageTitle.classList.add('title-active')
+    }
+    if (scrollY > 400){
+        mainText.classList.add('main-text-active')
+    }
 })
+
+
 
 class main{
     constructor() {
