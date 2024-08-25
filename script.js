@@ -35,7 +35,7 @@ document.addEventListener('scroll', () => {
         header.classList.remove('col-12')
     }
     if (scrollY > 250){
-        pageTitle.classList.add('title-active')
+        pageTitle.classList.add('active')
     }
     if (scrollY > 400){
         mainText.classList.add('main-text-active')
