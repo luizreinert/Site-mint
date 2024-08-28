@@ -12,6 +12,7 @@
     --success-sc: rgb(81, 218, 81);
     --caution: rgb(255, 254, 223);
     --caution-sc: rgb(255, 147, 7);
+    --error: rgb(241, 76, 76);
 }
 
 html, body {
@@ -227,17 +228,6 @@ html, body {
     animation: teste 5s linear infinite;
 }
 
-
-.page-2{
-    min-height: 90vh;
-    background-color: white;
-}
-
-.page-3{
-    min-height: 70vh;
-    background-color: transparent;
-}
-
 .page-4{
     min-height: 90vh;
     background-color: white;
@@ -247,20 +237,35 @@ html, body {
    background-color: transparent;
 }
 
+/* Page 2 */
+
+.page-2{
+    min-height: 90vh;
+    background-color: white;
+}
+
+.section-img{
+    object-fit: contain;
+    width: 80%;
+}
+
 .section-title{
-    font-family: "Varela Round", sans-serif;
     font-size: 60pt;
     font-weight: 600;
     opacity: 0;
     color: var(--mainbg);
 }
 
-.section-title2 span{
-    font-family: "Varela Round", sans-serif;
-    font-size: 40pt;
+.section-title2 h1{
+    font-size: calc(1.7vw + 4.6vh);
     font-weight: 600;
     opacity: 1;
     color: var(--headerbg);
+}
+
+.section-title2 span{
+    
+    font-size: 1.5rem;
 }
 
 .active{
@@ -288,7 +293,7 @@ html, body {
     to{transform: translateX(0%); opacity: 1}
 }
 
-.section-img{
+.steps-img{
     object-fit: contain;
     width: 80%;
 }
@@ -299,30 +304,33 @@ html, body {
     padding-top: 3%;
 }
 
-
-.step1::after{
-    content: '';
+.bar-disabled{
+    transition: 0.5s all;
     height: 100%;
     z-index: -1;
-    width: 9px;
-    border-left: 3px solid var(--headerbg);
-    border-right: 3px solid var(--headerbg);
+    width: 3px;
+    background-color: var(--headerbg);
     position: absolute;
 }
 
-.step2::after{
-    content: '';
-    height: 100%;
-    z-index: -1;
-    width: 9px;
-    border-left: 3px solid var(--headerbg);
-    border-right: 3px solid var(--headerbg);
-    position: absolute;
+.bar-enabled{
+    transition: 0.5s all;
+    background-color: var(--mint)!important;
 }
 
-.steps-icon button{
+.btn-disabled{
+    transition: 0.5s all;
     background: white;
     border: 3px solid var(--mainbg);
+    border-radius: 50%;
+    height: 70px;
+    width: 70px;
+}
+
+.btn-enabled{
+    transition: 0.5s all;
+    background: white;
+    border: 3px solid var(--mint);
     border-radius: 50%;
     height: 70px;
     width: 70px;
@@ -346,26 +354,58 @@ html, body {
     font-size: 1.14em;
 }
 
+
+/* Page 3 */
+
+.page-3{
+    min-height: 70vh;
+    background-color: transparent;
+}
+
+.feature-row{
+    margin-top: 3.7rem!important;
+    margin-bottom: 6rem;
+}
+
 .feature{
     color: var(--headerbg);
     border: 3px solid var(--mainbg);
     border-radius: 40px;
+    min-height: 54vmin;
 }
 
+.feature:first-of-type, .feature:nth-of-type(3){
+    transform: scale(0.95);
+}
 
 .feature:hover{
     transition: all 0.3s;
-    background-color: rgba(82, 211, 161, 0.295);
     scale: 1.1;
-}
-
-.feature:not(:hover){
-    transition: all 0.3s;
-    scale: 1.0
+    border: 3px solid var(--mint);
+    box-shadow: 0 0 15px var(--mint);
 }
 
 .feature:nth-of-type(2):hover{
     scale: 1.15;
+}
+
+.feature:not(:hover){
+    transition: all 0.3s;
+}
+
+.feature:hover img{
+    transition: all 0.3s;
+    scale: 1.2;
+}
+
+.feature:hover h4{
+    transition: all 0.2s;
+    color: var(--mint);
+}
+
+.feature:not(:hover) img{
+    transition: all 0.5s;
+    scale: 1.0;
 }
 
 
@@ -374,18 +414,22 @@ html, body {
 }
 
 .feature-icon img{
-    width: 60%;
+    width: 40%;
     padding: 10% 0px;
 }
 
+
 .feature h4{
+    text-align: center;
     margin: 20px 0px;
     font-size: 2em;
     font-weight: bold;
 }
 
 .feature p{
-    font-size: 1.14em;
+    text-align: center;
+    font-size: 1.16em;
+    text-wrap: balance;
 }
 
 .title-consulta{
@@ -677,28 +721,126 @@ tr {
     }
 }
 
+.back-arrow{
+    transition: all 0.5s 1s, opacity 0.3s;
+    position: fixed;
+    background-color: rgba(255, 255, 255, 0.425);
+    border: 3px solid var(--mainbg);
+    color: var(--mint);
+    right: 100px;
+    bottom: 80px;
+    width: 0px;
+    height: 0px;
+    font-size: 25pt;
+    border-radius: 50%;
+    opacity: 0;
+}
+
+.shown{
+    transition: opacity 0.5s ;
+    pointer-events: all;
+    width: 60px;
+    height: 60px;
+    opacity: 1
+}
+
+.back-top-hover{
+    animation: back-top-anim 2s 0.3s infinite
+}
+
+@keyframes back-top-anim{
+    10%{
+        transform: translateY(10px);
+    }
+    20%{
+        transform: translateY(-5px);
+    }
+    40%{
+        transform: translateY(0px);
+    }
+    100%{
+        transform: translateY(0px);
+    }
+}
+
 footer{
     position: relative;
     width: 100%;
     height: 10%;
     font-size: 14pt;
     color: white;
-    background-color: var(--mint);
+    background-color: var(--headerbg);
 }
 
-@media (min-width: 1200px){
-    .title::after{
-        content: "";
-        height: 100%;
-        display: block;
-        border-right: 1px solid black;
-        margin-right: 5%
-    }
+/*cadastro*/
+
+.register-title{
+    font-size: calc(3vw + 6vh);
+    font-weight: bolder;
+    color: var(--mint);
 }
 
-@media (max-width: 1200px){
-    .title{
-        border-bottom: 1px solid black;
-        padding-bottom: 20px
-    }
+.background-div{
+    width: 100%;
+    display: flex;
+    overflow: hidden;
+    position: absolute;
+    background-color: #ffffff;
 }
+
+.background-div img{
+    min-width: 100%;
+    min-height: 100vh;
+    object-fit: cover;
+}
+
+.form-main{
+    min-height: 50vh;
+    background-color: #f8f8f8;
+    border-radius: 40px;
+    border: 3px solid var(--mint);
+}
+
+input:-webkit-autofill {
+    -webkit-box-shadow: 0 0 0 30px white inset;
+}
+
+.form-input{
+    transition: all 0.3s;
+    outline: 1px solid gainsboro;
+    border-width: 2px;
+    border-style: solid;
+    border-color: transparent;
+    font-size: 1.1rem;
+    padding: 7px;
+    border-radius: 10px;
+    pointer-events: all;
+}
+
+.form-input:focus{
+    transition: all 0.8s;
+    border-color: var(--mint);
+}
+
+.input-label{
+    transition: all 0.3s;
+    color: rgba(0, 0, 0, 0.521);
+    font-size: 1.2rem;
+    pointer-events: none;
+    z-index: 0;
+}
+
+.span-focused{
+    transition: all 0.3s ease-in-out;
+    color: var(--mint);
+    translate: 0px -120%;
+}
+
+.invalid-value, .invalid-value:focus{
+    border-color: var(--error);
+}
+
+.valid-value, .valid-value:focus{
+    border-color: rgb(48, 187, 48);
+}
+

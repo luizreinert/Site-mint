@@ -2,7 +2,8 @@
     <head>
         <meta charset="utf-8" lang="pt-br">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>APP Orçamento Pessoal</title>
+        <title>Mint.</title>
+        <link rel="icon" href="/assets/icone3.png">
         <link href="style.css" rel="stylesheet">
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     </head>
@@ -29,12 +30,12 @@
                         descubra o <span class="highlight-brand">Mint.</span>
                     </h1>
                     <p class="intro-p">
-                        Transforme a maneira como você gerencia suas finanças com uma <span class="highlight-brand">abordagem clara e organizada</span>. Aproveite uma visão detalhada das suas despesas e um <span class="highlight-brand">planejamento eficiente</span> do seu orçamento. Mantenha tudo em ordem e alcance seus objetivos financeiros com facilidade. Descubra como uma <span class="highlight-brand">gestão financeira simplificada</span> pode fazer toda a diferença
+                        Transforme a maneira como você gerencia suas finanças com uma <span class="highlight-brand">abordagem clara e organizada</span>. Aproveite uma visão detalhada das suas despesas e um <span class="highlight-brand">planejamento eficiente</span> do seu orçamento. Descubra como uma <span class="highlight-brand">gestão financeira simplificada</span> pode fazer toda a diferença.
                     </p>
                     <div class="intro-btns">
-                        <button id="registro">Sobre o Mint</button>
-                        <button class="mx-3" id="registro">Registrar despesas</button>
-                        <button id="consulta">Consultar despesas</button>
+                        <a href="index.html"><button id="registro">Sobre o Mint</button></a>
+                        <a href="cadastro.html"><button class="mx-3" id="registro">Registrar despesas</button></a>
+                        <a href="consulta.html"><button id="consulta">Consultar despesas</button></a>
                     </div>
                 </div>
                 <div class="d-flex col-5">
@@ -67,16 +68,17 @@
                 <div class="d-flex flex-column justify-content-center col-12">
                     <div class="d-flex flex-row col-10 justify-content-center align-self-center">
                         <div class="d-flex col-6 steps-img justify-content-center">
-                            <img class="section-img align-self-center" src="assets/sobre-anim.gif">
+                            <img class="steps-img opening align-self-center" src="assets/step1.png" id="steps-img">
                         </div>
                         <div class="d-flex col-6 steps">
                             <div class="d-flex flex-row col-12 p-4">
                                 <div class="d-flex flex-column col-12">
                                     <div class="d-flex">
                                         <div class="d-flex flex-column align-items-center justify-content-between col-2 steps-icon step1">
-                                            <button>
-                                                <img src="assets/icons/steps-1-img.png">
+                                            <button class="btn-enabled" id="step1-btn">
+                                                <img src="assets/icons/mouse-anim.apng" id="mouse">
                                             </button>
+                                            <div class="bar-disabled" id="progress-bar-1"></div>
                                         </div>
                                         <div class="d-flex flex-column steps-text col-10">
                                             <h2><span class="highlight-brand">1.</span> Gastou? Registre sua despesa no sistema!</h2>
@@ -85,9 +87,10 @@
                                     </div>
                                     <div class="d-flex">
                                         <div class="d-flex flex-column align-items-center justify-content-between col-2 steps-icon step2">
-                                            <button>
-                                                <img src="assets/icons/steps-2-img.png">
+                                            <button class="btn-disabled" id="step2-btn">
+                                                <img src="assets/icons/pencil-img.png" id="pencil">
                                             </button>
+                                            <div class="bar-disabled" id="progress-bar-2"></div>
                                         </div>
                                         <div class="d-flex flex-column steps-text col-10">
                                             <h2><span class="highlight-brand">2.</span> Preencha o formulário com os detalhes do gasto</h2>
@@ -96,8 +99,8 @@
                                     </div>
                                     <div class="d-flex justify-content-between">
                                         <div class="d-flex flex-column align-items-center justify-content-between col-2 steps-icon step3">
-                                            <button>
-                                                <img src="assets/icons/steps-3-img.png">
+                                            <button class="btn-disabled" id="step3-btn">
+                                                <img src="assets/icons/history-img.png" id="document">
                                             </button>
                                         </div>
                                         <div class="d-flex flex-column steps-text col-10">
@@ -113,46 +116,50 @@
             </div>
         </div>
         <div class="d-flex page-4 flex-column align-items-center justify-content-around col-12">
-            <div class="d-flex section-title2 flex-column align-items-center text-center justify-content-start col-12 mt-5">
-                <span class="col-12">Intuitivo, prático, eficaz.</span>
-                <h4 class="highlight-brand-sm col-6">Veja como o Mint. pode facilitar o controle dos seus gastos e otimizar seu planejamento financeiro</p>
+            <div class="d-flex section-title2 row-gap- flex-column align-items-center text-center justify-content-start col-12 mt-5">
+                <h1 class="col-12">Intuitivo, prático, eficaz.</h1>
+                <span class="col-6">Veja como o <span class="highlight-brand-sm ">Mint.</span> pode facilitar o controle dos seus gastos e otimizar seu planejamento financeiro</span>
             </div>
-            <div class="d-flex flex-row row justify-content-center column-gap-5 col-10 my-5">
+            <div class="d-flex flex-row row justify-content-center column-gap-5 col-10 feature-row">
                 <div class="d-flex flex-column feature col-3">
                     <div class="feature-icon">
-                        <img src="assets/icons/globe-img.png">
+                        <img src="assets/icons/globe-img.png" id="globe">
                     </div>
                     <div>
                         <h4>Acesse suas despesas em qualquer lugar</h4><hr>
-                        <p>Oferecendo acesso completo pelo smartphone ou computador, o Mint. garante que você esteja sempre atualizado, onde quer que esteja</h6>
+                        <p>Oferecendo acesso completo pelo smartphone ou computador, o <span class="highlight-brand">Mint.</span> garante que você esteja sempre atualizado, onde quer que esteja</h6>
                     </div>
                 </div>
                 <div class="d-flex flex-column feature col-3">
                     <div class="feature-icon">
-                        <img src="assets/icons/steps-1.gif">
+                        <img src="assets/icons/pig-img.png" id="pig">
                     </div>
                     <div>
                         <h4>Organize seus gastos com facilidade</h4><hr>
-                        <p>Categorize e registre suas despesas de maneira rápida e intuitiva. O Mint permite que você acompanhe seus gastos de forma clara, para que você saiba exatamente para onde seu dinheiro está indo.</p>
+                        <p>Classifique e registre suas despesas com facilidade com o <span class="highlight-brand">Mint.</span> Acompanhe seus gastos claramente e saiba exatamente para onde seu dinheiro está indo.</p>
                     </div>
                 </div>
                 <div class="d-flex flex-column feature col-3">
                     <div class="feature-icon">
-                        <img src="assets/icons/steps-1.gif">
+                        <img src="assets/icons/history-img.png" id="history">
                     </div>
                     <div>
                         <h4>Histórico detalhado para decisões assertivas</h4><hr>
-                        <p>Revise o histórico completo das suas transações e gastos para tomar decisões financeiras mais inteligentes. Com o Mint, você pode analisar padrões e ajustar seu planejamento com base em dados históricos.</p>
+                        <p>Revise seu histórico de transações com o <span class="highlight-brand">Mint.</span> para tomar decisões financeiras mais inteligentes e ajustar seu planejamento.</p>
                     </div> 
                 </div>
             </div>
         </div>
-        <footer class="d-flex justify-content-center">
-            <span class="align-self-center">Orçamento pessoal. Todos os direitos reservados. 2024.</span>
+        <button class="back-arrow" id="back-arrow">
+            <ion-icon name="arrow-up-outline"></ion-icon>
+          </button>
+        <footer class="d-flex flex-column justify-content-center">
+            <span class="align-self-center"><span class="highlight-brand"> Mint.</span> 2024.</span>
+            <span class="align-self-center">Criado por Luiz Henrique Reinert</span>
         </footer>
         <script src="script.js"></script>
         <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
-<script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+        <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
     </body>
 </html>
