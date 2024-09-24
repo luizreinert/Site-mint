@@ -395,11 +395,11 @@ class Main{
                 })
                 break
             case 'no-data':
-                if (localStorage.length == 0){
+                if (localStorage.length == 0 && this.table.innerHTML.includes('message-error') == false){
                     this.table.innerHTML += `
                     <tr>
                         <td class="align-top" colspan="100%" rowspan="100%">
-                            <div class="d-flex flex-column row-gap-4 align-content-center justify-self-center p-4 w-100">
+                            <div class="d-flex flex-column row-gap-4 align-content-center justify-self-center p-4 w-100" id='message-error'>
                                 <div class="d-flex flex-column text-center row-gap-2 align-self-start align-items-center w-100 justify-content-center">
                                     <ion-icon class="error-icon" name="alert-circle"></ion-icon>
                                     <span class="error-text display-6 ms-2">Nada por aqui ainda!</span>
