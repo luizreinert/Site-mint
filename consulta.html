@@ -9,7 +9,7 @@
     </head>
     <body>
         <header class="header-main z-2 navbar navbar-expand-lg d-flex justify-content-center mobile" id="header-main">
-            <nav class="d-flex align-items-center container col-10" id="nav">
+            <nav class="d-flex align-items-center container col-12" id="nav">
                 <a class="nav-brand position-relative" href="index.html">
                     <img src="assets/logos/logo-light.png">
                     <span class="brand-title">Mint.</span>
@@ -19,10 +19,10 @@
                 </button>
                 <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ms-auto">
-                    <li class="nav-item mx-4 my-lg-0 my-2">
+                    <li class="nav-item mx-4 my-lg-0 mt-3">
                         <a class="link" href="cadastro.html">Registrar despesas</a>
                     </li>
-                    <li class="nav-item mx-4 my-lg-0 my-2">
+                    <li class="nav-item mx-4 my-lg-0 my-3">
                         <a class="link" href="consulta.html">Consulta</a>
                     </li>
                 </ul></div>
@@ -32,18 +32,17 @@
         <div class="d-flex justify-content-center flex-grow-1 mt-4">
             <div class="d-flex flex-column bodycard px-0 px-md-5 col-11 col-md-10">
                 <div class="display-1 title-consulta mb-3 mb-xl-4 d-flex">Consulta de despesa</div>
-                <div class="d-flex col-12 flex-row column-gap-5 justify-content-between mb-4">
-                    <div class="d-flex col-6 align-items-center input-div">
-                        <span class="position-absolute input-label ps-2">Pesquise por palavras chaves ou valor da depesa</span>
-                        <input type="text" class="col-12 ps-2 form-input" id="filter-search">
+                <div class="d-flex col-12 flex-column flex-md-row row-gap-4 column-gap-5 justify-content-between mb-4">
+                    <div class="d-flex col-md-6 col-12 align-items-center">
+                        <input type="text" placeholder="Pesquise por palavras chaves ou valor da depesa" class="col-12 ps-2 form-input" id="filter-search">
                     </div>
                     <div class="d-flex col flex-row justify-content-start column-gap-4">
-                        <button type="submit" class="filter-btn px-3" id="filter">
+                        <button type="submit" class="filter-btn px-3 py-3 py-md-0" id="filter">
                             <ion-icon name="search"></ion-icon>
                             <span>Pesquisar</span>
                         </button>
                         <div class="d-flex">
-                            <button type="submit" class="adv-search-btn px-3" id="adv-search">
+                            <button type="submit" class="adv-search-btn px-3 py-3 py-md-0" id="adv-search">
                                 <span class="align-middle">Pesquisa avançada</span>
                                 <ion-icon class="align-middle adv-search-icon" id="adv-search-icon" name="caret-up-outline"></ion-icon>
                             </button>

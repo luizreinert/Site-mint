@@ -20,10 +20,10 @@ class AnimationEvents{
                 header.classList.remove('nav-norm')
                 headerLinksDiv.innerHTML = `
                 <ul class="navbar-nav ms-auto">
-                    <li class="nav-item mx-4 my-lg-0 my-2">
+                    <li class="nav-item mx-4 my-lg-0 mt-3">
                         <a class="link" href="cadastro.html">Registrar despesas</a>
                     </li>
-                    <li class="nav-item mx-4 my-lg-0 my-2">
+                    <li class="nav-item mx-4 my-lg-0 mt-3 mb-3">
                         <a class="link" href="consulta.html">Consulta</a>
                     </li>
                 </ul>`
@@ -40,7 +40,7 @@ class AnimationEvents{
         })
     }
 
-    scrollAnimation () {
+    headerChange () {
         const scrollTypes = ['scroll', 'touchstart']
         scrollTypes.forEach(evento => {
             document.addEventListener(evento, () => {
@@ -66,7 +66,6 @@ class AnimationEvents{
                                         <a class="link" href="consulta.html">Consulta</a>
                                     </li>
                                 </ul>`
-                                console.log('oi')
                             }
                         }, 1200)
                     }
@@ -236,6 +235,7 @@ class AnimationEvents{
         this.videoChange()
         this.headerMobile()
         this.scrollAnimations()
+        this.headerChange()
     }
 }
 var iconsAnim = new AnimationEvents
