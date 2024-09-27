@@ -33,6 +33,7 @@ class Main{
         })
         this.checkboxFunction()
         this.toggleAdvSearch()
+        this.mobileShowRowInfo()
     }
 
     typeFix(dia){
@@ -120,6 +121,19 @@ class Main{
         } else {
             submitExclude.classList.add('d-none')
         }
+    }
+
+    mobileShowRowInfo(){
+        var tableRows = document.querySelectorAll('tr')
+        tableRows.forEach(row => {
+            if (row.classList.contains('table-header') == false){
+                row.addEventListener('click', () => {
+                    var mriContainer = document.getElementById(`mri-container-${row.id.slice(4)}`)
+                    mriContainer.classList.toggle('mri-container-active')
+                    mriContainer.classList.toggle('mri-container')
+                })
+            }
+        })
     }
 
     spanAnim(){
@@ -215,7 +229,7 @@ class Main{
                 var checkArray = []
                 var array = JSON.parse(Object.entries(localStorage)[i][1])
                 for (var key in array){
-                    if (array[key].toLowerCase() == keyWord.toLowerCase()){
+                    if ((array[key].toLowerCase()).includes(keyWord.toLowerCase()) == true){
                         checkArray.push(true)
                     } else {
                         checkArray.push(false)
@@ -241,6 +255,7 @@ class Main{
                 this.alert('no-data-2')
             }  
         }
+        this.mobileShowRowInfo()
     }
 
     insertData(id){
@@ -249,11 +264,36 @@ class Main{
         <tr id='row-${item.id}'>
             <td class='d-flex justify-content-center'><input type='checkbox' name='row-checkbox' id=checkbox-${item.id}></td>
             <td>${item.dia}/${item.mes}/${item.ano}</td>
-            <td>${item.tipo}</td>
-            <td>${item.desc}</td>
+            <td class="d-none d-sm-table-cell">${item.tipo}</td>
+            <td class="d-none d-sm-table-cell">${item.desc}</td>
             <td>R$ ${item.valor}</td>
             <td><button class='remove-data-btn' id=${item.id}>x</button></td>
         </tr>
+        <tbody>
+            <tr class='mri-container' id='mri-container-${item.id}'>
+                <td colspan="100%">
+                    <div class="d-flex flex-column row-gap-2">
+                        <div class="d-flex justify-content-between">
+                            <div class="">
+                                <span>Tipo de despesa</span>
+                            </div>
+                            <div class="">
+                                <span id="mri-type">${item.tipo}</span>
+                            </div>
+                        </div>
+                        <div class="d-flex justify-content-between">
+                            <div class="">
+                                <span>Descrição</span>
+                            </div>
+                            <div class="">
+                                <span id="mri-desc">${item.desc}</span>
+                            </div>
+                        </div>
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+
         `
     }
 
@@ -337,6 +377,7 @@ class Main{
                 var confirmBtn = document.getElementById('confirmar') 
                 confirmBtn.addEventListener('click', () => {
                     document.getElementById(`row-${i}`).remove()
+                    document.getElementById(`mri-container-${i}`).remove()
                     localStorage.removeItem(i)
                     alertDiv.classList.toggle('alert-out')
                     setTimeout(() => {
@@ -380,6 +421,8 @@ class Main{
                     fetchCheckboxes.forEach((box) => {
                         if (box.checked == true){
                             localStorage.removeItem(box.id.slice(9))
+                            console.log(box)
+                            document.getElementById(`mri-container-${box.id.slice(9)}`)
                             box.parentElement.parentElement.remove()
                             alertDiv.classList.toggle('alert-out')
                             this.checkboxBool()
@@ -466,10 +509,37 @@ class Main{
             newRow.innerHTML = `
             <td class="d-flex justify-content-center"><input type='checkbox' name='row-checkbox' id=checkbox-${this.fetchDataIteration(i, 'id')}></td>
             <td>${this.fetchDataIteration(i, 'dia')}/${this.fetchDataIteration(i, 'mes')}/${this.fetchDataIteration(i, 'ano')}</td>
-            <td>${this.fetchDataIteration(i, 'tipo')}</td>
-            <td>${this.fetchDataIteration(i, 'desc')}</td>
+            <td class="d-none d-sm-table-cell">${this.fetchDataIteration(i, 'tipo')}</td>
+            <td class="d-none d-sm-table-cell">${this.fetchDataIteration(i, 'desc')}</td>
             <td>R$ ${this.fetchDataIteration(i, 'valor')}</td>
             <td><button class='remove-data-btn' id=${this.fetchDataIteration(i, 'id')}>X</button></td>`
+            newRow.insertAdjacentHTML("afterend", 
+                `<tbody>
+                <tr class='mri-container' id='mri-container-${this.fetchDataIteration(i, 'id')}'>
+                    <td colspan="100%">
+                        <div class="d-flex flex-column row-gap-2">
+                            <div class="d-flex justify-content-between">
+                                <div class="">
+                                    <span>Tipo de despesa</span>
+                                </div>
+                                <div class="">
+                                    <span id="mri-type">${this.fetchDataIteration(i, 'tipo')}</span>
+                                </div>
+                            </div>
+                            <div class="d-flex justify-content-between">
+                                <div class="">
+                                    <span>Descrição</span>
+                                </div>
+                                <div class="">
+                                    <span id="mri-desc">${this.fetchDataIteration(i, 'desc')}</span>
+                                </div>
+                            </div>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+            `
+            )
             var botao = document.getElementById(this.fetchDataIteration(i, 'id'))
             botao.addEventListener('click', () => {
                 setTimeout(() => {

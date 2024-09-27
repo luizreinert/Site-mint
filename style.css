@@ -589,20 +589,9 @@ html, body {
     color: #757575;
 }
 
-.tipodedespesa{
-    width: 100%;
-}
-
-.despesa{
-    width: 100%;
-}
-
-.desc-despesa{
-    width: 110%;
-}
-
-.valor-despesa{
-    width: 50%;
+.search-btns-row{
+    display: flex;
+    min-height: 53px;
 }
 
 .add-btn button{
@@ -803,6 +792,21 @@ html, body {
     border-spacing: 0px 3px;
 }
 
+.mri-container *{
+    transition: max-height 0.5s, opacity 0.5s, padding 0.5s ;
+    max-height: 0px;
+    padding: 0px!important;
+    opacity: 0;
+}
+
+.mri-container-active *{
+    transition: max-height 0.5s, opacity 0.5s, padding 0.5s;
+    max-height: 200px;
+    opacity: 1;
+
+}
+
+
 td {
     padding: 10px 0px;
 }
@@ -811,6 +815,7 @@ tr {
     transition: all 1s;
     vertical-align: middle;
 }
+
 
 .table tbody tr.checked {
     td {transition: background-color 0.5s; background-color: var(--mint) }
@@ -858,7 +863,6 @@ input[name="row-checkbox"], input[name="header-checkbox"]{
 .adv-search-btn{
     transition: background-color 0.5s, color 0.5s;
     height: 100%;
-    font-size: 15pt;
     line-height: 15pt;
     border-radius: 6px;
     color: #2f476d;
@@ -881,7 +885,6 @@ input[name="row-checkbox"], input[name="header-checkbox"]{
 .filter-btn{
     transition: background-color 0.5s, color 0.5s;
     height: 100%;
-    font-size: 15pt;
     line-height: 15pt;
     border-radius: 6px;
     color: var(--mint);
@@ -893,7 +896,6 @@ input[name="row-checkbox"], input[name="header-checkbox"]{
     transition: background-color 0.5s;
     border: none;
     height: 100%;
-    font-size: 15pt;
     line-height: 15pt;
     border-radius: 6px;
     border: 2px solid rgb(253, 174, 27);
@@ -905,7 +907,6 @@ input[name="row-checkbox"], input[name="header-checkbox"]{
     transition: background-color 0.5s;
     border: none;
     height: 100%;
-    font-size: 15pt;
     line-height: 15pt;
     border-radius: 6px;
     border: 2px solid var(--error);
@@ -1065,7 +1066,6 @@ footer{
 .register-logo{
     width: 100%;
 }
-
 
 .register-logo:hover > img:first-of-type{
     transition: all 10s linear;

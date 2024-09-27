@@ -36,25 +36,23 @@
                     <div class="d-flex col-md-6 col-12 align-items-center">
                         <input type="text" placeholder="Pesquise por palavras chaves ou valor da depesa" class="col-12 ps-2 form-input" id="filter-search">
                     </div>
-                    <div class="d-flex col flex-row justify-content-start column-gap-4">
-                        <button type="submit" class="filter-btn px-3 py-3 py-md-0" id="filter">
+                    <div class="d-flex search-btns-row col-md-6 col-12 flex-row justify-content-start column-gap-4">
+                        <button type="submit" class="filter-btn" id="filter">
                             <ion-icon name="search"></ion-icon>
                             <span>Pesquisar</span>
                         </button>
-                        <div class="d-flex">
-                            <button type="submit" class="adv-search-btn px-3 py-3 py-md-0" id="adv-search">
-                                <span class="align-middle">Pesquisa avançada</span>
-                                <ion-icon class="align-middle adv-search-icon" id="adv-search-icon" name="caret-up-outline"></ion-icon>
-                            </button>
-                        </div>
+                        <button type="submit" class="adv-search-btn" id="adv-search">
+                            <span class="align-middle">Pesquisa avançada</span>
+                            <ion-icon class="align-middle adv-search-icon" id="adv-search-icon" name="caret-up-outline"></ion-icon>
+                        </button>
                          <button type="submit" class="clear-checkbox-btn d-none px-3" id="clear-checkbox">
                                 <span>Remover selecionados</span> 
                         </button>
                     </div>
                 </div>
-                <div class="d-flex flex-row col-12 justify-content-between px-5 column-gap-5 adv-search-inputs" id="adv-search-inputs">
+                <div class="d-flex flex-row col-12 justify-content-between px-2 px-xl-5 column-gap-5 adv-search-inputs" id="adv-search-inputs">
                     <div class="d-flex flex-column row-gap-5 pt-5 pb-4 col-12">
-                        <div class="d-flex justify-content-between filter-gap flex-column flex-sm-row col-12">
+                        <div class="d-flex row-gap-5 justify-content-between filter-gap flex-column flex-sm-row col-12">
                             <div class="d-flex justify-content-between col-12 col-sm-5">
                                 <div class="d-flex col-2 col-sm-3 align-items-center input-div">
                                     <span class="position-absolute input-label ps-2">Dia</span>
@@ -107,7 +105,7 @@
                                 <span class="position-absolute input-label ps-2">Valor</span>
                                 <input class="col-12 ps-2 form-input" type="number" id="filter-valor">
                             </div>
-                            <button type="submit" class="clear-filter-btn" id="clear-filter">
+                            <button type="submit" class="clear-filter-btn col-2" id="clear-filter">
                                 <ion-icon name="reload-outline"></ion-icon>
                                 <span>Limpar filtros</span> 
                             </button>
@@ -116,10 +114,10 @@
                 </div>
                 <table class="table mt-3 z-1 table-group-divider table-responsive">
                     <tr class="table-header">
-                        <th class="d-lg-flex justify-content-center"><input type="checkbox" name="header-checkbox" id="check-all"></th>
+                        <th class="d-lg-flex text-center justify-content-center"><input type="checkbox" name="header-checkbox" id="check-all"></th>
                         <th>Data</th>
-                        <th>Tipo</th>
-                        <th>Descrição</th>
+                        <th class="d-none d-sm-table-cell">Tipo</th>
+                        <th class="d-none d-sm-table-cell">Descrição</th>
                         <th colspan="2">Valor</th>
                     </tr>
                 <tbody class="table-group-divider h-100" id="table-despesas"></tbody>
