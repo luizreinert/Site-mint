@@ -67,12 +67,12 @@ class Main{
         var fetchCheckboxes = document.querySelectorAll('[name="row-checkbox"]')
         var submitExclude = document.getElementById('clear-checkbox')
         fetchCheckboxes.forEach((box) => {
-            console.log(box)
-            box.addEventListener('click', () => {
+            box.addEventListener('click', (e) => {
                 box.parentElement.parentElement.classList.toggle('checked')
                 var rowRemoveDataBtn = document.getElementById(box.id.slice(9))
                 rowRemoveDataBtn.classList.toggle('remove-data-btn-active')
                 this.checkboxBool()
+                e.stopPropagation()
             })
         })     
         submitExclude.addEventListener('click', () => {
@@ -124,14 +124,26 @@ class Main{
     }
 
     mobileShowRowInfo(){
-        var tableRows = document.querySelectorAll('tr')
+    var tableRows = document.querySelectorAll('tr')
         tableRows.forEach(row => {
+            var mriContainer = document.getElementById(`mri-container-${row.id.slice(4)}`)
             if (row.classList.contains('table-header') == false){
                 row.addEventListener('click', () => {
-                    var mriContainer = document.getElementById(`mri-container-${row.id.slice(4)}`)
-                    mriContainer.classList.toggle('mri-container-active')
-                    mriContainer.classList.toggle('mri-container')
+                    if (window.innerWidth <= 575.98){
+                        mriContainer.classList.toggle('mri-container-active')
+                        mriContainer.classList.toggle('mri-container')
+                    }
                 })
+            }
+        })
+        var notMobile = window.matchMedia('(min-width: 575.98px)')
+        notMobile.addEventListener('change', (e) => {
+            if (e.matches){
+               var activatedRows = document.querySelectorAll('[class^="mri-container-active"]')
+               activatedRows.forEach((row) => {
+                    row.classList.remove('mri-container-active')
+                    row.classList.add('mri-container')
+               })
             }
         })
     }
@@ -421,7 +433,6 @@ class Main{
                     fetchCheckboxes.forEach((box) => {
                         if (box.checked == true){
                             localStorage.removeItem(box.id.slice(9))
-                            console.log(box)
                             document.getElementById(`mri-container-${box.id.slice(9)}`)
                             box.parentElement.parentElement.remove()
                             alertDiv.classList.toggle('alert-out')

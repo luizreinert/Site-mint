@@ -14,26 +14,12 @@ class AnimationEvents{
     headerMobile() {
         const header = document.getElementById('header-main')
         const headerLinksDiv = document.getElementById('navbarNav')
-        window.addEventListener('load', () => {
-            if (window.innerWidth < 998){
+        var mediumDevice = window.matchMedia('(min-width: 997.98px)')
+        mediumDevice.addEventListener('change', (e) => {
+            if (e.matches == true){
                 header.classList.add('mobile')
                 header.classList.remove('nav-norm')
-                headerLinksDiv.innerHTML = `
-                <ul class="navbar-nav ms-auto">
-                    <li class="nav-item mx-4 my-lg-0 mt-3">
-                        <a class="link" href="cadastro.html">Registrar despesas</a>
-                    </li>
-                    <li class="nav-item mx-4 my-lg-0 mt-3 mb-3">
-                        <a class="link" href="consulta.html">Consulta</a>
-                    </li>
-                </ul>`
-            }
-        })
-        window.addEventListener('resize', () => {
-            if (window.innerWidth < 998){
-                header.classList.add('mobile')
-                header.classList.remove('nav-norm')
-            } else {
+            } else if (e.matches == false) {
                 header.classList.remove('mobile')
                 header.classList.add('nav-norm')
             }
@@ -103,7 +89,6 @@ class AnimationEvents{
         const scrollTypes = ['scroll', 'touchstart']
         scrollTypes.forEach(evento => {
             document.addEventListener(evento, () => {
-                console.log(scrollY)
                 if (scrollY > 250){
                     pageTitle.classList.add('active')
                 }
@@ -201,7 +186,6 @@ class AnimationEvents{
                 switch(icon){
                     case this.globeIcon:
                         this.globeIcon.src = 'assets/icons/globe-anim.apng'
-                        console.log(this.globeIcon.parentElement.parentElement)
                         break
                     case this.pigIcon:
                         this.pigIcon.src = 'assets/icons/pig-anim.apng'

@@ -191,7 +191,6 @@ class Main{
                 el.value = ""
             }) 
         }
-        console.log(formErrors)
         formErrors.forEach((campo) => {
             this.errorHandling(campo)
         })
@@ -203,7 +202,6 @@ class Main{
             desc = 'Sem descrição';
         }
         var randomID = Math.random().toString().slice(2)
-        console.log(randomID)
         switch ([...dia].length){
             case 1:
                 dia = `0${dia}`
