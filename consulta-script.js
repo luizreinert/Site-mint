@@ -211,7 +211,8 @@ class Main{
                 if (checkArray.includes(false) == false){
                     this.table.innerHTML += this.insertData(i)
                     var botao = document.getElementById(this.fetchDataIteration(i, 'id'))
-                    botao.addEventListener('click', () => {
+                    botao.addEventListener('click', (e) => {
+                        e.preventDefault()
                         this.alert('remove-data', botao.id)
                         this.toggleRemoveBtnsState('disable')
                         setTimeout(() => {
@@ -250,12 +251,14 @@ class Main{
                 if (checkArray.includes(true)){
                     this.table.innerHTML += this.insertData(i)
                     var botao = document.getElementById(this.fetchDataIteration(i, 'id'))
-                    botao.addEventListener('click', () => {
+                    botao.addEventListener('click', (e) => {
+                        e.stopPropagation()
                         this.alert('remove-data', botao.id)
                         this.toggleRemoveBtnsState('disable')
                         setTimeout(() => {
                             this.alert('no-data-2')
                         }, 800);
+
                     })
                 } 
             }
@@ -552,7 +555,8 @@ class Main{
             `
             )
             var botao = document.getElementById(this.fetchDataIteration(i, 'id'))
-            botao.addEventListener('click', () => {
+            botao.addEventListener('click', (e) => {
+                e.stopPropagation()
                 setTimeout(() => {
                     this.toggleRemoveBtnsState('disable')
                     this.alert('remove-data', this.fetchDataIteration(i, 'id'))

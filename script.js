@@ -14,12 +14,26 @@ class AnimationEvents{
     headerMobile() {
         const header = document.getElementById('header-main')
         const headerLinksDiv = document.getElementById('navbarNav')
-        var mediumDevice = window.matchMedia('(min-width: 997.98px)')
-        mediumDevice.addEventListener('change', (e) => {
-            if (e.matches == true){
+        window.addEventListener('load', () => {
+            if (window.innerWidth < 998){
                 header.classList.add('mobile')
                 header.classList.remove('nav-norm')
-            } else if (e.matches == false) {
+                headerLinksDiv.innerHTML = `
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item mx-4 my-lg-0 mt-3">
+                        <a class="link" href="cadastro.html">Registrar despesas</a>
+                    </li>
+                    <li class="nav-item mx-4 my-lg-0 mt-3 mb-3">
+                        <a class="link" href="consulta.html">Consulta</a>
+                    </li>
+                </ul>`
+            }
+        })
+        window.addEventListener('resize', () => {
+            if (window.innerWidth < 998){
+                header.classList.add('mobile')
+                header.classList.remove('nav-norm')
+            } else {
                 header.classList.remove('mobile')
                 header.classList.add('nav-norm')
             }
@@ -116,7 +130,7 @@ class AnimationEvents{
                     title3Word.classList.add('title-w-shown')
                     sectionSubtitle.classList.add('subtitle-shown')
                 }
-                if (scrollY > 2200){
+                if (scrollY > 2100){
                     feature1.classList.add('feature-shown')
                     feature2.classList.add('feature-shown')
                     feature3.classList.add('feature-shown')

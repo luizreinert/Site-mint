@@ -104,11 +104,6 @@ html, body {
     animation: li-anim 1s forwards;
 }
 
-@keyframes li-anim{
-    from{opacity: 0;}
-    to{opacity: 1;}
-}
-
 .nav-anim img{
     transition: all 1s;
     object-fit: contain;
@@ -494,7 +489,7 @@ html, body {
 }
 
 .feature-shown{
-    animation: feature-shown 1s forwards;
+    animation: feature-shown 1s 1s forwards;
 }
 
 @keyframes feature-shown{
