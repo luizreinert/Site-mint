@@ -312,7 +312,7 @@ html, body {
 }
 
 .main-text{
-    font-size: 1.32rem;
+    font-size: 1.4rem;
     opacity: 0;
     text-wrap: balance;
     color: var(--mainbg);
@@ -452,11 +452,11 @@ html, body {
     top: 0px;
 }
 
-#title-w-2.title-w-shown{
+#title-w-2{
     transition-delay: 0.3s;
 }
 
-#title-w-3.title-w-shown{
+#title-w-3{
     transition-delay: 0.6s;
 }
 
@@ -639,18 +639,17 @@ html, body {
 .alert-text{
     color: var(--mainbg);
     font-weight: bold;
-    font-size: 16pt;
+    font-size: 1.4rem;
     line-height: 35pt;
 }
 
 .checkmark-icon{
     color: var(--success-sc);
-    font-size: 35pt;
-    line-height: 35pt;
+    font-size: 45pt;
 }
 
 .close-icon{
-    font-size: 40pt;
+    font-size: 45pt;
     color: var(--success);
 }
 
@@ -677,13 +676,12 @@ html, body {
     background-color: var(--success);
     z-index: 2;
     border-radius: 10px;
-    display: flex;
     animation: alert-in 1.5s forwards;
 }
 
-.active-cadastro::after{
+.active-cadastro::before{
     content: '';
-    position: absolute;
+    position: relative;
     border-radius: 10px 0px 0px 10px;
     width: 20px;
     height: 100%;
@@ -960,8 +958,8 @@ input[name="row-checkbox"], input[name="header-checkbox"]{
     background-color: rgba(255, 255, 255, 0.425);
     border: 3px solid var(--mainbg);
     color: var(--mint);
-    right: 100px;
-    bottom: 80px;
+    right: 10%;
+    bottom: 10%;
     width: 0px;
     height: 0px;
     font-size: 25pt;
@@ -1014,17 +1012,13 @@ footer{
     background-color: #f9f9fb;
 }
 
-.carousel-main{
-    border-radius: 30px 0px 0px 30px;
-}
-
 .form-main{
     border-radius: 0px 30px 30px 0px;
 }
 
 .carousel-main{
-    background: rgb(15,38,52);
-
+    background: rgb(28, 64, 88);
+    border-radius: 30px 0px 0px 30px;
 }
 
 .register-carousel{

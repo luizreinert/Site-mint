@@ -251,9 +251,9 @@ class Main{
         switch (alerta){
             case 'cadastro':
                 alertDiv.innerHTML =
-                `<div class="d-flex align-content-center w-100 justify-content-around">
-                    <div class="d-flex align-self-center">
-                        <ion-icon class="checkmark-icon " name="checkmark-circle"></ion-icon>
+                `<div class="d-flex align-content-center w-100 justify-content-center">
+                    <div class="d-flex flex-column flex-sm-row column-gap-4 justify-content-center align-items-center">
+                        <ion-icon class="checkmark-icon" name="checkmark-circle"></ion-icon>
                         <span class="alert-text ms-2">Despesa cadastrada com sucesso!</span>
                     </div>
                 </div>`

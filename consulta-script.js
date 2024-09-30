@@ -234,41 +234,42 @@ class Main{
             this.alert('no-data')
             if (keyWord == '' || keyWord == undefined){
                 this.recuperarDados()
-            }
-            for (var i = 0; i <= localStorage.length + 1; i++){
-                if(Object.entries(localStorage)[i] == null || Object.entries(localStorage)[i] == undefined){
-                    continue
-                }
-                var checkArray = []
-                var array = JSON.parse(Object.entries(localStorage)[i][1])
-                for (var key in array){
-                    if ((array[key].toLowerCase()).includes(keyWord.toLowerCase()) == true){
-                        checkArray.push(true)
-                    } else {
-                        checkArray.push(false)
+            } else {
+                for (var i = 0; i <= localStorage.length + 1; i++){
+                    if(Object.entries(localStorage)[i] == null || Object.entries(localStorage)[i] == undefined){
+                        continue
                     }
+                    var checkArray = []
+                    var array = JSON.parse(Object.entries(localStorage)[i][1])
+                    for (var key in array){
+                        if ((array.desc.toLowerCase()).includes(keyWord.toLowerCase()) == true || (array.valor == keyWord)){
+                            checkArray.push(true)
+                        } else {
+                            checkArray.push(false)
+                        }
+                    }
+                    if (checkArray.includes(true)){
+                        this.table.innerHTML += this.insertData(i)
+                        var botao = document.getElementById(this.fetchDataIteration(i, 'id'))
+                        botao.addEventListener('click', (e) => {
+                            e.stopPropagation()
+                            this.alert('remove-data', botao.id)
+                            this.toggleRemoveBtnsState('disable')
+                            setTimeout(() => {
+                                this.alert('no-data-2')
+                            }, 800);
+    
+                        })
+                    } 
                 }
-                if (checkArray.includes(true)){
-                    this.table.innerHTML += this.insertData(i)
-                    var botao = document.getElementById(this.fetchDataIteration(i, 'id'))
-                    botao.addEventListener('click', (e) => {
-                        e.stopPropagation()
-                        this.alert('remove-data', botao.id)
-                        this.toggleRemoveBtnsState('disable')
-                        setTimeout(() => {
-                            this.alert('no-data-2')
-                        }, 800);
-
-                    })
-                } 
+                this.checkboxFunction()
+                if (checkArray == undefined){
+                    this.alert('no-data-2')
+                } else if (checkArray.includes(false) == true) {
+                    if(this.table.innerHTML.includes('tr') == false)
+                    this.alert('no-data-2')
+                }      
             }
-            this.checkboxFunction()
-            if (checkArray == undefined){
-                this.alert('no-data-2')
-            } else if (checkArray.includes(false) == true) {
-                if(this.table.innerHTML.includes('tr') == false)
-                this.alert('no-data-2')
-            }  
         }
         this.mobileShowRowInfo()
     }
@@ -369,7 +370,7 @@ class Main{
                 `<div class="d-flex flex-column row-gap-4 align-content-center justify-self-center p-4 w-100">
                     <div class="d-flex flex-column row-gap-2 align-self-start align-items-center w-100 justify-content-center">
                         <ion-icon class="warning-icon" name="warning"></ion-icon>
-                        <span class="alert-text ms-2">Deseja remover a despesa selecionadas?</span>
+                        <span class="alert-text ms-2">Deseja remover a despesa selecionada?</span>
                     </div>
                     <div class="d-flex w-100 justify-content-evenly action-btns">
                         <button id="cancelar">Cancelar</button>
