@@ -8,7 +8,7 @@
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     </head>
     <body>
-        <div class="background-div">
+        <div class="background-div d-none d-sm-flex">
             <img src="assets/bg-cadastro.png">
         </div>
         <div id="alert-bg"></div>
@@ -21,8 +21,11 @@
                             <div class="d-flex register-carousel carousel-img" id="carousel-container">
                                 <img src="assets/sobre-anim-2.gif">
                             </div>
-                            <h3 class="display-6 text-white" id="carousel-title">Conquiste seus objetivos!</h3>
-                            <span class="lead text-white" id="carousel-text">Cada passo conta. Comece hoje e chegue mais perto de onde você quer estar.</span>
+                            <div class="carousel-text-container">
+                                <h3 class="display-5 fw-bold" id="carousel-title">Conquiste seus objetivos!</h3>
+                                <hr>
+                                <span class="lead" id="carousel-text">Cada passo conta. Comece hoje e chegue mais perto de onde você quer estar.</span>
+                            </div>
                         </div>
                         <div class="d-flex d-xl-none row-gap-3 col-12 p-4">
                             <div class="d-flex flex-row row-gap-4 align-items-center justify-content-between col-12" id="logo-title">
@@ -39,7 +42,7 @@
                         </div>
                     </div>
                     <div class="d-flex col-xl-6 col-12" id="register-bottom">
-                        <div class="d-flex flex-column row-gap-5 justify-content-between form-main px-xl-5 px-3 py-5 col-12">
+                        <div class="d-flex flex-column row-gap-4  form-main px-xl-5 px-3 py-5 col-12">
                             <div class="d-none d-xl-flex flex-column row-gap-3">
                                 <div class="d-flex flex-row flex-xl-column align-items-xl-start align-items-center justify-content-around row-gap-3 col-12" id="logo-title">
                                     <a class="register-logo" href="index.html">
@@ -54,7 +57,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="d-flex flex-column register-form-gap">
+                            <div class="d-flex flex-column flex-grow-1 row-gap-5 py-4 justify-content-around register-form-gap">
                                 <div class="d-flex justify-content-between">
                                     <div class="d-flex flex-column col-3">
                                         <div class="d-flex align-items-center input-div">
