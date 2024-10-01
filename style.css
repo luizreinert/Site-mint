@@ -1003,6 +1003,11 @@ footer{
     background-color: var(--headerbg);
 }
 
+.github-hl{
+    text-decoration: none;
+    color: var(--mint);
+}
+
 /*cadastro*/
 .background-div{
     width: 100%;

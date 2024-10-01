@@ -237,9 +237,11 @@ class AnimationEvents{
     }
 }
 var iconsAnim = new AnimationEvents
+
 if(window.location.href.includes('index') == true){
     iconsAnim.main()
-    var backTopBtn = document.getElementById('back-arrow')
+    const backTopBtn = document.getElementById('back-arrow')
+    const mainScrollBtn = document.getElementById('main-scroll-btn')
     window.addEventListener('wheel', (e) => { 
         if(e.deltaY < 0 && scrollY > 100){
             backTopBtn.classList.add('shown')
@@ -264,5 +266,9 @@ if(window.location.href.includes('index') == true){
 
     backTopBtn.addEventListener('mouseleave', () => {
         backTopBtn.firstElementChild.classList.remove('back-top-hover')
+    })
+
+    mainScrollBtn.addEventListener('click', () => {
+        window.scrollTo(0, 850)
     })
 }
