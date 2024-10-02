@@ -29,8 +29,9 @@ class AnimationEvents{
                 </ul>`
             }
         })
-        window.addEventListener('resize', () => {
-            if (window.innerWidth < 998){
+        const mdDevice = window.matchMedia('(max-width: 998px)')
+        mdDevice.addEventListener('resize', () => {
+            if (mdDevice.matches){
                 header.classList.add('mobile')
                 header.classList.remove('nav-norm')
             } else {
@@ -85,6 +86,7 @@ class AnimationEvents{
     scrollAnimations(){
         const pageTitle = document.getElementById('page2-title')
         const mainText = document.getElementById('page2-main-text')
+        const page3Bg = document.getElementById('page3-bg')
         const step1 = document.getElementById('steps-1')
         const step1Btn = document.getElementById('step1-btn')
         const step1Bar = document.getElementById('progress-bar-1')
@@ -94,20 +96,30 @@ class AnimationEvents{
         const step3 = document.getElementById('steps-3')
         const step3Btn = document.getElementById('step3-btn')
         const title1Word = document.getElementById('title-w-1')
+        const page1Subheader = document.getElementById('page1-subheader')
         const title2Word = document.getElementById('title-w-2')
         const title3Word = document.getElementById('title-w-3')
-        const sectionSubtitle = document.getElementById('section-subtitle')
+        const page1Subtitle = document.getElementById('page1-subtitle')
+        const page3Subtitle = document.getElementById('page3-subtitle')
         const feature1 = document.getElementById('feature-1')
         const feature2 = document.getElementById('feature-2')
         const feature3 = document.getElementById('feature-3')
         const scrollTypes = ['scroll', 'touchstart']
         scrollTypes.forEach(evento => {
             document.addEventListener(evento, () => {
+                console.log(scrollY)
                 if (scrollY > 250){
                     pageTitle.classList.add('active')
                 }
                 if (scrollY > 400){
                     mainText.classList.add('main-text-active')
+                }
+                if (scrollY > 800){
+                    page1Subheader.classList.add('subheader-shown')
+                }
+                if (scrollY > 800){
+                    page1Subtitle.classList.add('page1-subtitle-shown')
+                    page3Bg.classList.add('steps-shown')
                 }
                 if (scrollY > 1100){
                     step1.classList.add('steps-text-active')
@@ -128,7 +140,7 @@ class AnimationEvents{
                     title1Word.classList.add('title-w-shown')
                     title2Word.classList.add('title-w-shown')
                     title3Word.classList.add('title-w-shown')
-                    sectionSubtitle.classList.add('subtitle-shown')
+                    page3Subtitle.classList.add('subtitle-shown')
                 }
                 if (scrollY > 2100){
                     feature1.classList.add('feature-shown')
@@ -269,6 +281,6 @@ if(window.location.href.includes('index') == true){
     })
 
     mainScrollBtn.addEventListener('click', () => {
-        window.scrollTo(0, 850)
+        window.scrollTo(0, 900)
     })
 }

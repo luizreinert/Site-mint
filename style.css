@@ -23,7 +23,7 @@ html, body {
     overflow-x: hidden;
     width: 100%;
     min-height: 100vh;
-    background-color: #f1f1f1 !important;
+    background-color: white !important;
 }
 
 .varela-round-regular {
@@ -38,7 +38,7 @@ html, body {
 
 .nav-norm{
     transition: width 1s, background-color 0.3s, margin-top 1s 0.2s;
-    margin-top: 20px;
+    top: 20px;
     width: 30%;
     background-color: transparent;
 }
@@ -177,7 +177,7 @@ html, body {
     color: var(--mint);
     text-decoration: none;
     font-weight: bold;
-    text-shadow: 5px 5px 100px rgba(82, 211, 161, 0.541);
+    text-shadow: 5px 5px 100px var(--mint);
 }
 
 .highlight-brand-sm{
@@ -272,34 +272,41 @@ html, body {
     background-color: white;
 }
 
-.body-card{
-   background-color: transparent;
-}
-
 /* Page 2 */
 
 .page-2{
-    min-height: 90vh;
+    min-height: 80vh;
     background-color: white;
 }
 
 .section-img-container{
-    max-width: 100%;
-    object-fit: contain;
+    min-width: 40%;
+    object-fit: cover;
 }
 
 .section-title{
-    font-size: calc(1.7vw + 4.6vh);
+    font-size: 3.7em;
     font-weight: 600;
     opacity: 0;
     color: var(--mainbg);
 }
 
 .section-title2{
-    font-size: calc(1.7vw + 4.6vh);
+    font-size: 3.7em;
     font-weight: 600;
     opacity: 1;
-    color: var(--headerbg);
+    color: var(--mainbg);
+}
+
+.section-subheader{
+    font-size: 3.8em;
+    color: white;
+    opacity: 0;
+}
+
+.subheader-shown{
+    transition: all 1s;
+    opacity: 1;
 }
 
 .active{
@@ -329,10 +336,15 @@ html, body {
 
 
 .steps-text{
+    color: white;
     opacity: 0;
     transform: translateX(50%);
     padding: 3% 0;
     margin-left: 2%;
+}
+
+.steps-text h2{
+    font-size: 2em;
 }
 
 .steps-text span{
@@ -414,7 +426,7 @@ html, body {
 .btn-disabled{
     transition: 0.5s all;
     background: white;
-    border: 3px solid var(--mainbg);
+    border: 3px solid var(--headerbg);
     border-radius: 50%;
     height: 70px;
     width: 70px;
@@ -436,8 +448,27 @@ html, body {
 
 /* Page 3 */
 
+.steps-bg{
+    background-color: var(--mainbg);
+    height: 100%;
+    transform: rotate(-3deg);
+}
+
+.steps-shown{
+    animation: testy 1s 0.3s forwards;
+}
+
+@keyframes testy{
+    from{width: 0px;}
+    to{width: 120vw;}
+}
+
+.page3-top-section {
+    min-width: 100vw;
+}
+
 .page-3{
-    background-color: transparent;
+    background-color: white;
 }
 
 .title-w{
@@ -461,12 +492,18 @@ html, body {
 }
 
 .section-subtitle{
-    font-size: 1.5rem;
+    font-size: 1.4em;
     opacity: 0;
 }
 
+.page1-subtitle-shown{
+    transition: all 1s 0.3s;
+    color: white;
+    opacity: 1;
+}
+
 .subtitle-shown{
-    transition: 1s 1s all;
+    transition: 1s 0.7s all;
     opacity: 1;
 }
 
@@ -489,7 +526,7 @@ html, body {
 }
 
 .feature-shown{
-    animation: feature-shown 1s 1s forwards;
+    animation: feature-shown 1s 0.6s forwards;
 }
 
 @keyframes feature-shown{
@@ -1042,13 +1079,13 @@ footer{
 }
 
 .carousel-text-container{
-    background-color: rgb(255, 255, 255);
+    background-color: rgba(255, 255, 255, 0.692);
     padding: 20px;
     border-radius: 20px;
 }
 
 .carousel-text-container h3{
-    color: var(--mint);
+    color: #03384d;;
 }
 
 .carousel-text-container span{
@@ -1105,10 +1142,6 @@ input:-webkit-autofill {
 
 input, select{
     min-height: 53px;
-
-}
-
-.register-form-gap{
 
 }
 
