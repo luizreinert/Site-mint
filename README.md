@@ -1,9 +1,9 @@
 <p align='center'>
-  <img src='assets/logos/mint-full-logo.png' width='60%'>
+  <img src='assets/logos/mint-full-logo.png' width='50%'>
 </p>
 <hr>
 
-<video src='https://github.com/luizreinert/Site-mint/blob/main/assets/readme_files/landing-page.mp4' width='70%' />
+<video autoplay loop src='https://github.com/user-attachments/assets/de66dcab-8dc5-4ad7-9a30-111333b36e51' width='60%'></video>
 
 Este é um site simples desenvolvido por mim para fins de aprendizado em **Frontend**. O site permite ao usuário cadastrar suas despesas e consultá-las depois em uma tabela filtrável.
 
