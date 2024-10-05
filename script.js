@@ -249,38 +249,35 @@ class AnimationEvents{
     }
 }
 var iconsAnim = new AnimationEvents
+iconsAnim.main()
+const backTopBtn = document.getElementById('back-arrow')
+const mainScrollBtn = document.getElementById('main-scroll-btn')
+window.addEventListener('wheel', (e) => { 
+    if(e.deltaY < 0 && scrollY > 100){
+        backTopBtn.classList.add('shown')
+        backTopBtn.classList.toggle('transition')
+    } else {
+        backTopBtn.classList.remove('shown')
+    }
+}) 
 
-if(window.location.href.includes('index') == true){
-    iconsAnim.main()
-    const backTopBtn = document.getElementById('back-arrow')
-    const mainScrollBtn = document.getElementById('main-scroll-btn')
-    window.addEventListener('wheel', (e) => { 
-        if(e.deltaY < 0 && scrollY > 100){
-            backTopBtn.classList.add('shown')
-            backTopBtn.classList.toggle('transition')
-        } else {
-            backTopBtn.classList.remove('shown')
-        }
-    }) 
-    
-    window.addEventListener('scrollend', (e) => {
-        if (scrollY < 100){
-            backTopBtn.classList.remove('shown')
-        }
-    })
-        backTopBtn.addEventListener('click', () => {
-        window.scrollTo(0, 0)
-    })
+window.addEventListener('scrollend', (e) => {
+    if (scrollY < 100){
+        backTopBtn.classList.remove('shown')
+    }
+})
+    backTopBtn.addEventListener('click', () => {
+    window.scrollTo(0, 0)
+})
 
-    backTopBtn.addEventListener('mouseenter', () => {
-    backTopBtn.firstElementChild.classList.add('back-top-hover')
-    })
+backTopBtn.addEventListener('mouseenter', () => {
+backTopBtn.firstElementChild.classList.add('back-top-hover')
+})
 
-    backTopBtn.addEventListener('mouseleave', () => {
-        backTopBtn.firstElementChild.classList.remove('back-top-hover')
-    })
+backTopBtn.addEventListener('mouseleave', () => {
+    backTopBtn.firstElementChild.classList.remove('back-top-hover')
+})
 
-    mainScrollBtn.addEventListener('click', () => {
-        window.scrollTo(0, 900)
-    })
-}
+mainScrollBtn.addEventListener('click', () => {
+    window.scrollTo(0, 900)
+})
